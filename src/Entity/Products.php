@@ -23,31 +23,29 @@ class Products
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    public $name;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $price;
+    public $price;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $created_at;
+    public $created_at;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $upodated_at;
+    public $upodated_at;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Rating", mappedBy="product_id")
-     */
-    private $rating;
+    
+   
 
     public function __construct()
     {
-        $this->rating = new ArrayCollection();
+       // $this->rating = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -103,34 +101,6 @@ class Products
         return $this;
     }
 
-    /**
-     * @return Collection|Rating[]
-     */
-    public function getRating(): Collection
-    {
-        return $this->rating;
-    }
+   
 
-    public function addRating(Rating $rating): self
-    {
-        if (!$this->rating->contains($rating)) {
-            $this->rating[] = $rating;
-            $rating->setProductId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRating(Rating $rating): self
-    {
-        if ($this->rating->contains($rating)) {
-            $this->rating->removeElement($rating);
-            // set the owning side to null (unless already changed)
-            if ($rating->getProductId() === $this) {
-                $rating->setProductId(null);
-            }
-        }
-
-        return $this;
-    }
 }

@@ -30,7 +30,7 @@ import { HydraAdmin } from '@api-platform/admin';
 
 class App extends Component {
     render() {
-        return <HydraAdmin entrypoint="http://localhost/products_api/public/api"/> // Replace with your own API entrypoint
+        return <HydraAdmin entrypoint="http://localhost:8000/api"/> // Replace with your own API entrypoint
     }
 }
 
