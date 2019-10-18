@@ -3,13 +3,19 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
 use Doctrine\Common\Collections\ArrayCollection;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Elasticsearch\DataProvider\Filter\OrderFilter;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\ProductsRepository")
+ * @ApiFilter(SearchFilter::class, properties={"name": "exact","price":"partial"})
+ * @ApiFilter(OrderFilter::class, properties={"name","price","created_at"}, arguments={"orderParameterName"="order"})
  */
 class Products
 {
@@ -39,13 +45,16 @@ class Products
      * @ORM\Column(type="datetime")
      */
     public $upodated_at;
-
+	
+	/**
+     * @ORM\OneToMany(targetEntity="App\Entity\Rating",mappedBy="product_id")
+     */
     
-   
+    public $rating;
 
     public function __construct()
     {
-       // $this->rating = new ArrayCollection();
+       $this->rating = new ArrayCollection();
     }
 
     public function getId(): ?int
