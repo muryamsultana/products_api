@@ -7,12 +7,15 @@
         "ext-iconv": "*",
         "api-platform/api-pack": "^1.2",
         "doctrine/doctrine-migrations-bundle": "^2.0",
+        "nelmio/cors-bundle": "@dev",
+        "symfony/apache-pack": "^1.0",
         "symfony/console": "4.3.*",
         "symfony/dotenv": "4.3.*",
         "symfony/flex": "^1.3.1",
         "symfony/framework-bundle": "4.3.*",
         "symfony/maker-bundle": "^1.13",
-        "symfony/yaml": "4.3.*"
+        "symfony/yaml": "4.3.*",
+        "webonyx/graphql-php": "^0.13.8"
     },
     "require-dev": {
     },

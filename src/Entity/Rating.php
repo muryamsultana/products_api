@@ -7,9 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ApiResource()
- * @ORM\Entity(repositoryClass="App\Repository\VariationsRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\RatingRepository")
  */
-class Variations
+class Rating
 {
     /**
      * @ORM\Id()
@@ -19,19 +19,15 @@ class Variations
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Products", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Products", inversedBy="rating")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $product_id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="decimal", precision=3, scale=2)
      */
-    private $color;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $size;
+    private $value;
 
     public function getId(): ?int
     {
@@ -50,26 +46,14 @@ class Variations
         return $this;
     }
 
-    public function getColor(): ?string
+    public function getValue(): ?string
     {
-        return $this->color;
+        return $this->value;
     }
 
-    public function setColor(string $color): self
+    public function setValue(string $value): self
     {
-        $this->color = $color;
-
-        return $this;
-    }
-
-    public function getSize(): ?string
-    {
-        return $this->size;
-    }
-
-    public function setSize(string $size): self
-    {
-        $this->size = $size;
+        $this->value = $value;
 
         return $this;
     }
