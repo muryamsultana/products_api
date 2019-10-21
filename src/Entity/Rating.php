@@ -22,6 +22,11 @@ class Rating
      * @ORM\ManyToOne(targetEntity="App\Entity\Products", inversedBy="rating")
      * @ORM\JoinColumn(nullable=false)
      */
+    private $user_id;
+	/**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="rating")
+     * @ORM\JoinColumn(nullable=false)
+     */
     private $product_id;
 
     /**
@@ -46,10 +51,23 @@ class Rating
         return $this;
     }
 
+	 public function getUserId(): ?Users
+    {
+        return $this->user_id;
+    }
+
+    public function setUserId(?Users $user_id): self
+    {
+        $this->user_id = $user_id;
+
+        return $this;
+    }
+
     public function getValue(): ?string
     {
         return $this->value;
     }
+
 
     public function setValue(string $value): self
     {
