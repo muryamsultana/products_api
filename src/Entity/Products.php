@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\ProductsRepository")
  * @ApiFilter(SearchFilter::class, properties={"name": "exact","price":"partial"})
- * @ApiFilter(OrderFilter::class, properties={"name","price","created_at"}, arguments={"orderParameterName"="order"})
+ * @ApiFilter(OrderFilter::class, properties={"name":"asc","price":"desc","created_at":"desc"}, arguments={"orderParameterName"="order"})
  */
 class Products
 {

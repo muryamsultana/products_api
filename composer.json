@@ -8,6 +8,7 @@
         "api-platform/api-pack": "^1.2",
         "doctrine/doctrine-migrations-bundle": "^2.0",
         "elasticsearch/elasticsearch": "6.0",
+        "lexik/jwt-authentication-bundle": "^2.6",
         "nelmio/cors-bundle": "@dev",
         "symfony/apache-pack": "^1.0",
         "symfony/console": "4.3.*",

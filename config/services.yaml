@@ -10,6 +10,12 @@ services:
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+    # Repositories
+    app.user.repository:
+      class: App\Repository\UsersRepository
+      arguments:
+          - Symfony\Bridge\Doctrine\RegistryInterface
+          - Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -25,3 +31,10 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+  
+    # Controllers
+    app.auth.controller:
+      class: App\Controller\AuthController
+      arguments:
+          - '@app.user.repository'
+          
