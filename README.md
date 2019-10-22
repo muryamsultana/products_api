@@ -15,7 +15,7 @@ Installation
 Download the repository and its contains all the source code including dependencies, if you got any error run
 ```bash
 composer install 
-
+```
 Add migrations and schema
 -------------------------
 set database name in .env file
@@ -23,19 +23,21 @@ set database name in .env file
 php bin/console make:migrations
 ```bash
 php bin/console make:migrations:migrate
-
+```
 Run project directory start server
 -----------------------------------
 ```bash
 symfony server start
+```
 http://localhost:8000/api will give you interface for CRUD
 
 Running Admin Component
 -----------------------
 
 got to projectdir/my-admin and run
+```
 yarn start
-
+```
 it will start the admin panel where you can see listed products you can serach by name , price  sort by different fields.
 
 
