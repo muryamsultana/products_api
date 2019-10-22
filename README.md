@@ -44,7 +44,7 @@ it will start the admin panel where you can see listed products you can serach b
 Creating user and requesting API token for CRUD
 -----------------------------------------------
 ```bash
-curl -X POST -H "Content-Type: application/json" http://localhost:8000/register -d "{\"email\":\"test2@mail.com\",\"password\":\"test2\"}"
+curl -X POST -H "Content-Type: application/json" "http://localhost:8000/register?email=test1@mail.com&password=test1"
 (it will register new user)
 ```bash
 curl -X POST -H "Content-Type: application/json" http://localhost:8000/login -d "{\"email\":\"test2@mail.com\",\"password\":\"test2\"}"
