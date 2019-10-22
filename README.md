@@ -1,18 +1,41 @@
-##Installation
+SYMFONY Products API END POINTS
+===============================
+
+This is test symfony api applications build using API-Platform which implemnets CRUD functionality and integrated Admin Component.
+
+Requirements
+------------
+
+  * PHP 7.1.3 or higher;
+  * MYSQL PHP extension enabled;
+  * and the [usual Symfony application requirements][2].
+
+Installation
+------------
 Download the repository and its contains all the source code including dependencies, if you got any error run
+
 composer install 
 
-##add migrations and schema
+Add migrations and schema
+-------------------------
+set database name in .env file
 php bin/console make:migrations
 php bin/console make:migrations:migrate
 
-in project directory start server
+Run project directory start server
+-----------------------------------
+
 symfony server start
 http://localhost:8000/api will give you interface for CRUD
-now in new command prompt
+
+Running Admin Component
+-----------------------
+
 got to projectdir/my-admin and run
 yarn start
+
 it will start the admin panel where you can see listed products you can serach by name , price  sort by different fields.
+
 
 Here are api end points to register user and get api token by username and email\
 
